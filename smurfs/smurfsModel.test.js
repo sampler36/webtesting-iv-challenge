@@ -22,5 +22,22 @@ describe('smurf model', () => {
         })
 
     })
+    describe('delete', () => {
+        afterEach(async () => {
+            await db('smurfs').truncate();
+    });
+		it('should delete the given smurf out the db', async () => {
+            const smurfee = await smurf.insert({ name: 'papa' });
+               // removes the added smurf 
+            const deleteSmurf = await smurf.remove(1);
+            
+          //shows all the left out  smurfs which is 0 
+            const smurflist = await db('smurfs');
+           
+             //count the number of smurfs and calculate the length
+			expect(smurflist).toHaveLength(0);
+		});
+
+});
 
 })
