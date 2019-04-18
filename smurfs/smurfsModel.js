@@ -8,8 +8,8 @@ module.exports = {
   findById,
 };
 
-async function insert(smurf) {
-  const [id] = await db('smurfs').insert(smurf, 'id');
+async function insert(smurfee) {
+  const [id] = await db('smurfs').insert(smurfee, 'id');
   
     return db('smurfs')
         .where({id})
@@ -25,7 +25,7 @@ function remove(id) {
 }
 
 function getAll() {
-  return db('hobbits');
+  return db('smurfs');
 }
 
 function findById(id) {
