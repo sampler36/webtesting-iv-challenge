@@ -6,7 +6,14 @@
   "scripts": {
 	"server": "nodemon index.js",
     "test": "cross-env DB_ENV=testing jest --watch --verbose",
-    "start": "node index.js"
+	"start": "node index.js",
+	"initdb":"knex init",
+    "table1":"knex migrate:make createSmurfsTable",
+    "migrate":"knex migrate:latest",
+    "seed1": "knex seed:make 01-smurfs",
+    "runseed1":"knex seed:run 01-smurfs",
+    "seed":"knex seed:run",
+    "rollback":"knex migrate:rollback"
   },
   "repository": {
     "type": "git",
